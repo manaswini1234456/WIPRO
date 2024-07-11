@@ -1,3 +1,14 @@
+
+
+/*
+input1:{'A','B','C}
+input2:{'B','C'}
+Output:2
+
+
+*/
+
+
 import java.util.*;
 
 class Main {
