@@ -1,0 +1,53 @@
+//milestone 2 :PIN GENERATION
+
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        findPin(3521,2452,1352,38);
+    }
+        public static void findPin(int n1,int n2,int n3,int n4){
+        int a1[] = new int[4];
+        int a2[] = new int[4];
+        int a3[] = new int[4];
+        for(int i=0;i<4;i++){
+            a1[i] = n1%10;
+            a2[i] = n2%10;
+            a3[i] = n3%10;
+            n1/=10;
+            n2/=10;
+            n3/=10;
+        }
+        Arrays.sort(a1);
+        Arrays.sort(a2);
+        Arrays.sort(a3);
+        int res=a1[0]*a2[3]*a3[0]-n4;
+        System.out.println(res);
+    }
+}
+
+
+//while logic
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    int d1=9,d2=0,d3=9;
+	    Scanner ob=new Scanner(System.in);
+	    int i1=ob.nextInt();
+	    int i2=ob.nextInt();
+	    int i3=ob.nextInt();
+	    int i4=ob.nextInt();
+	    while(i1>0){
+	        d1=Math.min(d1,i1%10);
+	        i1/=10;
+	        d2=Math.max(d2,i2%10);
+	        i2/=10;
+	        d3=Math.min(d3,i3%10);
+	        i3/=10;
+	    }
+	    
+		System.out.println(d1*d2*d3+i4);
+	}
+}
