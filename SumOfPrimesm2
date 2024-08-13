@@ -44,3 +44,261 @@ class HelloWorld {
         System.out.println(pin(a,a.length));
     }
 }
+
+
+
+//logic 2
+import java.util.*;
+public class Main
+{
+    public static boolean isprime(int number) {
+        
+        if (number <= 1) {
+            return false;
+        }
+
+
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false; 
+            }
+        }
+
+        return true; 
+    }
+
+    public static int fn(int a[],int n){
+        int small=Integer.MAX_VALUE,ans=0;
+        for(int i=0;i<n;i++){
+            if(isprime(a[i])){
+                ans+=a[i];
+                if(a[i]<small){
+                    small=a[i];
+                }
+            }
+        }
+        if(small==Integer.MAX_VALUE){
+            return -1;
+        }
+        return ans-small;
+    }
+	public static void main(String[] args) {
+		int a[]={2,5,4,3,8,5};
+		int n=a.length;
+		int sum=0,small=Integer.MAX_VALUE;
+		int ans=fn(a,n);
+		if(ans==-1){
+		   for(int i=0;i<n;i++){
+		       sum+=a[i];
+		   }
+		   System.out.println(sum-small);
+		}
+		else{
+		    System.out.println(ans);
+		}
+	}
+}
+
+//logic3
+import java.util.*;
+public class Main
+{
+    public static boolean isprime(int number) {
+        
+        if (number <= 1) {
+            return false;
+        }
+
+
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false; 
+            }
+        }
+
+        return true; 
+    }
+
+    public static int fn(int a[],int n){
+        int small=Integer.MAX_VALUE,ans=0;
+        for(int i=0;i<n;i++){
+            if(isprime(a[i])){
+                ans+=a[i];
+                if(a[i]<small){
+                    small=a[i];
+                }
+            }
+        }
+        if(small==Integer.MAX_VALUE){
+            return -1;
+        }
+        return ans-small;
+    }
+	public static void main(String[] args) {
+		int a[]={2,5,4,3,8,5};
+		int n=a.length;
+		int sum=0,small=Integer.MAX_VALUE;
+		int ans=fn(a,n);
+		if(ans==-1){
+		   for(int i=0;i<n;i++){
+		       sum+=a[i];
+		   }
+		   System.out.println(sum-small);
+		}
+		else{
+		    System.out.println(ans);
+		}
+	}
+}
+
+//logic 4
+import java.util.*;
+public class Main
+{
+    public static int addPrime(int arr[],int n){
+        int sum=0,l=Integer.MAX_VALUE;
+        if(containsPrime(arr,n)){
+            for(int i=0;i<n;i++){
+                if(isPrime(arr[i])){
+                    sum+=arr[i];
+                    l = Math.min(l,arr[i]);
+                }
+            }
+        }
+        else{
+            for(int i=0;i<n;i++){
+                sum+=arr[i];
+                l = Math.min(l,arr[i]);
+            }
+        }
+        return sum-l;
+    }
+    public static boolean containsPrime(int arr[],int n){
+        for(int i = 0;i<n;i++){
+            if(isPrime(arr[i])){
+                return true;
+            }
+        }
+        return false;
+    }
+    public static boolean isPrime(int x){
+        for(int i=2;i<=Math.sqrt(x);i++){
+            if(x%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+	    int n = sc.nextInt();
+	    int arr[] = new int[n];
+	    for(int i=0;i<n;i++){
+	        arr[i] = sc.nextInt();
+	    }
+		System.out.println(addPrime(arr,n));
+	}
+}
+
+
+//logic 5
+import java.util.*;
+class Main
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	    for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+	    System.out.println(fun(arr,n));
+	}
+	static int fun(int[] arr,int n)
+	{
+	    int sum=0;
+	    ArrayList<Integer> al=new ArrayList<>();
+	    for(int i=0;i<n;i++)
+	    if(isPrime(arr[i]))
+	    al.add(arr[i]);
+	    Collections.sort(al);
+	    if(al.size()==0)
+	    {
+	        for(int i=0;i<n;i++)
+	        sum+=arr[i];
+	        Arrays.sort(arr);
+	        sum-=arr[0];
+	    }
+	    else{
+	        for(int i=1;i<al.size();i++)
+	        sum+=al.get(i);
+	    }
+	    return sum;
+	}
+	static boolean isPrime(int n)
+	{
+	    if(n<=1)
+	    return false;
+	    if(n==2||n==3)
+	    return true;
+	    if(n%2==0||n%3==0)
+	    return false;
+	    for(int i=5;i*i<=n;i+=6)
+	    if(n%i==0||n%(i+2)==0)
+	    return false;
+	    return true;
+	}
+}
+
+//logic 6
+
+import java.util.*;
+public class Main
+{
+    public static boolean isprime(int number) {
+        
+        if (number <= 1) {
+            return false;
+        }
+     for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false; 
+            }
+        }
+    return true; 
+    }
+
+    public static int fn(int a[],int n){
+        int small=Integer.MAX_VALUE,ans=0;
+        for(int i=0;i<n;i++){
+            if(isprime(a[i])){
+                ans+=a[i];
+                if(a[i]<small){
+                    small=a[i];
+                }
+            }
+        }
+        if(small==Integer.MAX_VALUE){
+            return -1;
+        }
+        return ans-small;
+    }
+	public static void main(String[] args) {
+		int a[]={10,20,30};
+		int n=a.length;
+		int sum=0,small=Integer.MAX_VALUE;
+		int ans=fn(a,n);
+		if(ans==-1){
+		   for(int i=0;i<n;i++){
+		       sum+=a[i];
+		       if(a[i]<small){
+		           small=a[i];
+		       }
+		   }
+		   System.out.println(sum-small);
+		}
+		else{
+		    System.out.println(ans);
+		}
+	}
+}
