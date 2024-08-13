@@ -1,0 +1,46 @@
+//sumOfPrimeNumbers-smallest prime number,special case:if no prime number then add all numbers and subtract smallest number
+
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class HelloWorld {
+    public static int pin(int a[],int n)
+    {
+        int s=0;
+        boolean b=false;
+        int min=Integer.MAX_VALUE;
+        for(int i=0;i<a.length;i++)
+        {
+            if(isprime(a[i]))
+            {
+               s=s+a[i];
+               min=Math.min(min,a[i]);      
+               b=true; 
+            }
+        }
+        if(b==false)
+        {
+            for(int i=0;i<n;i++)
+            {
+                s=s+a[i];
+                min=Math.min(min,a[i]); 
+            }
+        }           
+        return s-min;
+    }
+    public static boolean isprime(int j)
+    {
+        for(int i=2;i<=Math.sqrt(j);i++)
+        {
+            if(j%i==0)
+            {
+                return false;
+            }
+        }
+        return true;
+    } 
+    public static void main(String[] args) {
+        int a[]={10,41,18,50,43,31,29,25,59,96,67};
+        System.out.println(pin(a,a.length));
+    }
+}
